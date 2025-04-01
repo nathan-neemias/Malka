@@ -82,9 +82,6 @@ export default function ContatoPage() {
       <Navbar />
       
       <main className="flex-grow pt-20">
-        {/* Hero Section */}
-       
-        
         {/* Conteúdo principal */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="flex flex-col md:flex-row gap-16">
