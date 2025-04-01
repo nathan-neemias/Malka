@@ -2,98 +2,44 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 import { Clock, MapPin, Mail } from 'lucide-react'
 
-const slides = [
-  {
-    image: '/images/foto1.jpg',
-    title: 'VILA ULTRA-LUXUOSA',
-    project: 'PROJETO P.01',
-    description: 'Arquitetura viverra tristique justo duis vitae diaminte neque nivamus aestan ateuene artine aringiangu the miss finibus viverra lacus fermen.'
-  },
-  {
-    image: '/images/foto2.jpg',
-    title: 'MANSÃO MODERNA',
-    project: 'PROJETO P.02',
-    description: 'Design contemporâneo com linhas clean e acabamentos premium, criando espaços que harmonizam luxo e funcionalidade.'
-  },
-  {
-    image: '/images/foto3.jpg',
-    title: 'RESIDÊNCIA ELEGANTE',
-    project: 'PROJETO P.03',
-    description: 'Sofisticação em cada detalhe, combinando materiais nobres e iluminação estratégica para criar ambientes únicos.'
-  }
-]
-
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
-
   return (
     <>
-      {/* Hero Section com Carousel */}
+      {/* Hero Section */}
       <div className="relative h-screen">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src={slides[currentSlide].image}
+            src="/images/foto1.jpg"
             alt="Interior luxuoso"
             fill
-            className="object-cover brightness-50 transition-opacity duration-500"
+            className="object-cover brightness-[0.35] transition-all duration-700"
             priority
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
         </div>
 
         {/* Content */}
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <p className="text-sm font-medium text-gray-300 mb-4">
-                {slides[currentSlide].project}
+            <div className="max-w-3xl transform transition-all duration-500">
+              <p className="text-sm font-medium text-[#C6A87D] mb-4 tracking-wider">
+                PROJETO RESIDENCIAL
               </p>
-              <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6">
-                {slides[currentSlide].title}
+              <h1 className="text-5xl sm:text-7xl font-light text-white mb-6 leading-tight">
+                ARQUITETURA DE EXCELÊNCIA
               </h1>
-              <p className="text-lg text-gray-300 mb-8">
-                {slides[currentSlide].description}
+              <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+                Transformando espaços em experiências únicas, onde cada detalhe conta uma história de sofisticação e elegância.
               </p>
               <Link
-                href="/projetos/vila-ultra-luxuosa"
-                className="inline-flex items-center px-6 py-3 border border-white text-base font-medium text-white hover:bg-white hover:text-black transition-colors duration-300"
+                href="/projetos"
+                className="inline-flex items-center px-8 py-4 border-2 border-[#C6A87D] text-base font-medium text-white hover:bg-[#C6A87D] transition-all duration-300"
               >
-                Ver Projeto
+                Conheça Nossos Projetos
               </Link>
-            </div>
-
-            {/* Project Counter */}
-            <div className="absolute bottom-8 left-4 sm:left-6 lg:left-8 flex items-center space-x-4 text-white">
-              <span className="text-2xl font-bold">{String(currentSlide + 1).padStart(2, '0')}</span>
-              <div className="w-12 h-[1px] bg-white"></div>
-              <span className="text-lg">{String(slides.length).padStart(2, '0')}</span>
-            </div>
-
-            {/* Navigation Arrows */}
-            <div className="absolute bottom-8 right-4 sm:right-6 lg:right-8 flex items-center space-x-4">
-              <button 
-                onClick={prevSlide}
-                className="p-2 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300"
-              >
-                ←
-              </button>
-              <button 
-                onClick={nextSlide}
-                className="p-2 border border-white text-white hover:bg-white hover:text-black transition-colors duration-300"
-              >
-                →
-              </button>
             </div>
           </div>
         </div>
@@ -123,40 +69,7 @@ const Hero = () => {
               
               {/* Etapa 2 */}
               <div className="relative pl-8 border-l-2 border-[#C6A87D]">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">2</div>
-                <h3 className="text-xl font-medium text-[#C6A87D] mb-3">Levantamento do Local</h3>
-                <p className="text-gray-600 mb-2"><strong>Obter dados do espaço atual</strong></p>
-                <ul className="text-gray-600 space-y-2">
-                  <li>• Medições, fotos e análise de estrutura e instalações.</li>
-                  <li>• Verificação de normas legais.</li>
-                </ul>
-              </div>
-              
-              {/* Etapa 3 */}
-              <div className="relative pl-8 border-l-2 border-[#C6A87D]">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">3</div>
-                <h3 className="text-xl font-medium text-[#C6A87D] mb-3">Estudo Preliminar</h3>
-                <p className="text-gray-600 mb-2"><strong>Criar um conceito inicial</strong></p>
-                <ul className="text-gray-600 space-y-2">
-                  <li>• Desenvolvimento de layout e croquis.</li>
-                  <li>• Apresentação das imagens em 3D e validação com o cliente.</li>
-                </ul>
-              </div>
-              
-              {/* Etapa 4 */}
-              <div className="relative pl-8 border-l-2 border-[#C6A87D]">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">4</div>
-                <h3 className="text-xl font-medium text-[#C6A87D] mb-3">Projeto Executivo</h3>
-                <p className="text-gray-600 mb-2"><strong>Detalhar o projeto técnico</strong></p>
-                <ul className="text-gray-600 space-y-2">
-                  <li>• Plantas, pontos técnicos e desenhos de móveis.</li>
-                  <li>• Especificação de materiais e acabamentos.</li>
-                </ul>
-              </div>
-              
-              {/* Etapa 5 */}
-              <div className="relative pl-8 border-l-2 border-[#C6A87D]">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">5</div>
+              <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">5</div>
                 <h3 className="text-xl font-medium text-[#C6A87D] mb-3">Planejamento e Orçamento</h3>
                 <p className="text-gray-600 mb-2"><strong>Controlar custos e prazos</strong></p>
                 <ul className="text-gray-600 space-y-2">
@@ -165,9 +78,20 @@ const Hero = () => {
                 </ul>
               </div>
               
-              {/* Etapa 6 */}
+              {/* Etapa 3 */}
               <div className="relative pl-8 border-l-2 border-[#C6A87D]">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">6</div>
+              <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">2</div>
+                <h3 className="text-xl font-medium text-[#C6A87D] mb-3">Levantamento do Local</h3>
+                <p className="text-gray-600 mb-2"><strong>Obter dados do espaço atual</strong></p>
+                <ul className="text-gray-600 space-y-2">
+                  <li>• Medições, fotos e análise de estrutura e instalações.</li>
+                  <li>• Verificação de normas legais.</li>
+                </ul>
+              </div>
+              
+              {/* Etapa 4 */}
+              <div className="relative pl-8 border-l-2 border-[#C6A87D]">
+              <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">6</div>
                 <h3 className="text-xl font-medium text-[#C6A87D] mb-3">Obra e Acompanhamento</h3>
                 <p className="text-gray-600 mb-2"><strong>Garantir a execução fiel</strong></p>
                 <ul className="text-gray-600 space-y-2">
@@ -176,14 +100,36 @@ const Hero = () => {
                 </ul>
               </div>
               
-              {/* Etapa 7 */}
+              {/* Etapa 5 */}
               <div className="relative pl-8 border-l-2 border-[#C6A87D]">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">7</div>
+              <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">3</div>
+                <h3 className="text-xl font-medium text-[#C6A87D] mb-3">Estudo Preliminar</h3>
+                <p className="text-gray-600 mb-2"><strong>Criar um conceito inicial</strong></p>
+                <ul className="text-gray-600 space-y-2">
+                  <li>• Desenvolvimento de layout e croquis.</li>
+                  <li>• Apresentação das imagens em 3D e validação com o cliente.</li>
+                </ul>
+              </div>
+              
+              {/* Etapa 6 */}
+              <div className="relative pl-8 border-l-2 border-[#C6A87D]">
+              <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">7</div>
                 <h3 className="text-xl font-medium text-[#C6A87D] mb-3">Entrega e Pós-Obra</h3>
                 <p className="text-gray-600 mb-2"><strong>Finalizar e ajustar detalhes</strong></p>
                 <ul className="text-gray-600 space-y-2">
                   <li>• Limpeza, revisão e entrega do espaço.</li>
                   <li>• Ajustes pós-entrega, se necessário.</li>
+                </ul>
+              </div>
+              
+              {/* Etapa 7 */}
+              <div className="relative pl-8 border-l-2 border-[#C6A87D]">
+              <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-[#C6A87D] flex items-center justify-center text-white font-medium">4</div>
+                <h3 className="text-xl font-medium text-[#C6A87D] mb-3">Projeto Executivo</h3>
+                <p className="text-gray-600 mb-2"><strong>Detalhar o projeto técnico</strong></p>
+                <ul className="text-gray-600 space-y-2">
+                  <li>• Plantas, pontos técnicos e desenhos de móveis.</li>
+                  <li>• Especificação de materiais e acabamentos.</li>
                 </ul>
               </div>
             </div>
