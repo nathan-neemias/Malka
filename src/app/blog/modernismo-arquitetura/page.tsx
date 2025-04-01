@@ -49,7 +49,7 @@ export default function ModernismoArquiteturaPage() {
           </h2>
           
           <p>
-            O movimento modernista na arquitetura se baseia em alguns princípios fundamentais: funcionalidade, racionalidade e simplicidade. "A forma segue a função" é uma das máximas que orientam esta corrente, priorizando espaços que atendam às necessidades práticas dos usuários em vez de seguir ornamentações estéticas tradicionais.
+            O movimento modernista na arquitetura se baseia em alguns princípios fundamentais: funcionalidade, racionalidade e simplicidade. &ldquo;A forma segue a função&rdquo; é uma das máximas que orientam esta corrente, priorizando espaços que atendam às necessidades práticas dos usuários em vez de seguir ornamentações estéticas tradicionais.
           </p>
           
           <p>

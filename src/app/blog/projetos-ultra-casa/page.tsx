@@ -37,7 +37,7 @@ export default function ProjetosUltraCasaPage() {
         {/* Conteúdo do artigo */}
         <article className="prose prose-lg max-w-none text-gray-800">
           <p>
-            Os projetos de residências de altíssimo padrão, conhecidos como "ultra casas", representam o ápice da arquitetura residencial contemporânea. Estas construções vão muito além do simples luxo, incorporando tecnologias de ponta, sustentabilidade e um design personalizado que reflete a identidade e as necessidades específicas de seus proprietários.
+            Os projetos de residências de altíssimo padrão, conhecidos como &ldquo;ultra casas&rdquo;, representam o ápice da arquitetura residencial contemporânea. Estas construções vão muito além do simples luxo, incorporando tecnologias de ponta, sustentabilidade e um design personalizado que reflete a identidade e as necessidades específicas de seus proprietários.
           </p>
           
           <p>

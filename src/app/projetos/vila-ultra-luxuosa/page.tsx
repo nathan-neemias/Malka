@@ -1,13 +1,12 @@
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import WhatsAppButton from '@/components/WhatsAppButton'
 
-const projectImages = [
+// Array de imagens para uso futuro
+/* const projectImages = [
   // ... existing images array ...
-]
+] */
 
 export default function VilaUltraLuxuosaPage() {
   return (

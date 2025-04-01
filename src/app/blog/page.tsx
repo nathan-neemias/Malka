@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import WhatsAppButton from '@/components/WhatsAppButton'
 
@@ -15,7 +14,7 @@ const blogPosts = [
     image: '/images/SobreNos.jpg',
     content: [
       {
-        title: 'Economia na Obra: Saiba Onde Vale a Pena Investir e Economizar',
+    title: 'Economia na Obra: Saiba Onde Vale a Pena Investir e Economizar',
         summary: 'Na hora de reformar, construir ou simplesmente dar uma repaginada em um ambiente, uma das maiores preocupações é o orçamento.',
         text: `Na hora de reformar, construir ou simplesmente dar uma repaginada em um ambiente, uma das maiores preocupações é o orçamento. Com o aumento nos preços de materiais e mão de obra, a economia se torna uma prioridade para muitos. Porém, nem sempre o mais barato é a melhor escolha, e saber onde investir pode fazer toda a diferença em qualidade e durabilidade.
 
@@ -64,7 +63,7 @@ const blogPosts = [
         image: '/images/ProjetoLirioParte2/Enscape_2025-02-14-18-12-50.jpg'
       },
       {
-        title: 'Retrofit de Apartamento Guiado por um Arquiteto',
+    title: 'Retrofit de Apartamento Guiado por um Arquiteto',
         summary: 'O conceito de retrofit tem ganhado destaque no universo da arquitetura e design de interiores, especialmente em ambientes urbanos.',
         text: `O conceito de retrofit tem ganhado destaque no universo da arquitetura e design de interiores, especialmente em ambientes urbanos. Essa prática não se limita apenas à reforma, mas envolve a atualização e revitalização de espaços, mantendo elementos históricos e estéticos enquanto se adapta às necessidades contemporâneas.
 
@@ -99,7 +98,7 @@ const blogPosts = [
         image: '/images/ProjetoLirioParte2/Enscape_2025-02-14-18-01-51.jpg'
       },
       {
-        title: 'A Importância do Arquiteto: Como Criar a Planta dos Sonhos para a sua casa',
+    title: 'A Importância do Arquiteto: Como Criar a Planta dos Sonhos para a sua casa',
         summary: 'A importância do arquiteto na obra vai além da estética do projeto, pois ele atua desde a concepção até a execução.',
         text: `A importância do arquiteto na obra vai além da estética do projeto, pois ele atua desde a concepção até a execução, garantindo que todos os detalhes sejam pensados de forma funcional e segura. O arquiteto é responsável por planejar espaços de forma inteligente, considerando a iluminação, ventilação, acabamentos e estrutura do imóvel.
 
@@ -124,7 +123,7 @@ const blogPosts = [
         image: '/images/ProjetoLirioParte2/Enscape_2025-02-14-17-29-42.jpg'
       },
       {
-        title: 'Reformando com Sucesso: Evite Erros Comuns ao Reformar Seu Ambiente',
+    title: 'Reformando com Sucesso: Evite Erros Comuns ao Reformar Seu Ambiente',
         summary: 'Reformar um espaço pode ser uma experiência emocionante, mas também repleta de desafios.',
         text: `Reformar um espaço pode ser uma experiência emocionante, mas também repleta de desafios. Para garantir que sua reforma seja bem-sucedida, é fundamental evitar erros comuns que podem comprometer o resultado final. Neste artigo, discutiremos os principais erros a serem evitados e forneceremos dicas valiosas para transformar seu ambiente de maneira eficaz e satisfatória.
 
@@ -212,10 +211,10 @@ const BlogPost = ({ title, content, image, onClose }: { title: string; content: 
     <div className="min-h-screen bg-white">
       <div className="relative h-[70vh] bg-gray-900">
         <div className="absolute inset-0">
-          <Image
+          <Image 
             src={image}
             alt={title}
-            fill
+            fill 
             className="object-cover opacity-90 transition-transform duration-1000 hover:scale-105"
             priority
           />
@@ -239,7 +238,7 @@ const BlogPost = ({ title, content, image, onClose }: { title: string; content: 
           </div>
         </div>
       </div>
-
+      
       <div className="max-w-[1400px] mx-auto px-6 py-24">
         <div className="grid grid-cols-12 gap-8 md:gap-16">
           <div className="hidden lg:block col-span-2">
@@ -271,8 +270,8 @@ const BlogPost = ({ title, content, image, onClose }: { title: string; content: 
                 </div>
               </div>
             </div>
-          </div>
-
+                  </div>
+                  
           <div className="col-span-12 lg:col-span-8">
             <div className="max-w-3xl mx-auto">
               {content.split('\n\n').map((paragraph, idx) => (
@@ -298,7 +297,7 @@ const BlogPost = ({ title, content, image, onClose }: { title: string; content: 
               ))}
             </div>
           </div>
-
+          
           <div className="hidden lg:block col-span-2">
             <div className="sticky top-8">
               <div className="w-full h-0.5 bg-[#C6A87D] mb-6" />
@@ -311,9 +310,9 @@ const BlogPost = ({ title, content, image, onClose }: { title: string; content: 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
               </button>
-            </div>
-          </div>
-        </div>
+                      </div>
+                    </div>
+                  </div>
 
         <div className="mt-16 pt-16 border-t border-gray-200 lg:hidden">
           <div className="flex justify-between items-center">
@@ -425,6 +424,18 @@ const globalStyles = `
   }
 `;
 
+// Função para aplicar estilos
+const applyGlobalStyles = () => {
+  if (typeof document !== 'undefined') {
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = globalStyles;
+    document.head.appendChild(styleElement);
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }
+};
+
 export default function BlogPage() {
   const [selectedContent, setSelectedContent] = useState<{ title: string; text: string; image: string } | null>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -437,7 +448,13 @@ export default function BlogPage() {
     checkIfMobile();
     window.addEventListener('resize', checkIfMobile);
 
-    return () => window.removeEventListener('resize', checkIfMobile);
+    // Aplicar estilos globais
+    const cleanupStyles = applyGlobalStyles();
+
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+      if (cleanupStyles) cleanupStyles();
+    };
   }, []);
 
   const handleContentClick = (title: string, text: string, image: string) => {
@@ -558,7 +575,7 @@ export default function BlogPage() {
           />
         )
       )}
-
+      
       <WhatsAppButton />
     </main>
   )
